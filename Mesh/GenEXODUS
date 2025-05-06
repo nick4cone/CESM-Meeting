@@ -1,7 +1,12 @@
 #!/bin/sh
 echo generate mesh with SQuadGen
 cd $SQuadGen
-refine_level=6
-resolution=16
-output=derecho-EXODUS.g
-./SQuadGen
+REFINE_LEVEL=5
+RESOLUTION=30
+REFINE_FILE="/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-grid-refine-region.png"
+OUTPUT="derecho-EXODUS.g"
+SMOOTH_TYPE="SPRING"
+SMOOTH_DIST=3
+SMOOTH_ITER=20
+# --invert specifies that black identifies regions of refinement
+./SQuadGen --refine_file $REFINE_FILE --invert --refine_level $REFINE_LEVEL --resolution $RESOLUTION --smooth_type $SMOOTH_TYPE --smooth_dist $SMOOTH_DIST --smooth_iter $SMOOTH_ITER --output $OUTPUT
