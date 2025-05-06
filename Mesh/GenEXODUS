@@ -1,0 +1,7 @@
+#!/bin/sh
+echo generate mesh with SQuadGen
+cd $SQuadGen
+refine_level=6
+resolution=16
+output=derecho-EXODUS.g
+./SQuadGen
