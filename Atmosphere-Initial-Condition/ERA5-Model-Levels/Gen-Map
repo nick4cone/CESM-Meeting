@@ -1,0 +1,4 @@
+#!/bin/sh
+SOURCE_GRID=/glade/campaign/collections/rda/data/d633006/e5.oper.an.ml/202010/e5.oper.an.ml.0_5_0_2_2_u.regn320uv.2020102900_2020102905.nc
+DEST_GRID=/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc
+ncremap -s $SOURCE_GRID -g $DEST_GRID -m map.nc

@@ -1,0 +1,7 @@
+#!/bin/sh
+INPUTFILE="/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc"
+OUTPUTFILE="midwest-ncf-ESMF.nc"
+DUALFLAG=0
+OUTFORMAT="ESMF"
+
+ESMF_Scrip2Unstruct $INPUTFILE $OUTPUTFILE $DUALFLAG $OUTFORMAT

@@ -1,0 +1,20 @@
+#!/bin/sh
+ATMSRFOUTLOC="/glade/u/home/nforcone/CESM-Meeting/Dry-Deposition/"
+atmName="MIDWEST.ne30x5"
+atmGridName=/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc
+SCRATCHDIR=/glade/derecho/scratch/nforcone
+MACHINE="NCAR"
+
+cd /glade/u/home/nforcone/vr-cesm-toolkit/gen_atmsrf/
+
+set +e
+date
+ncl gen_se_mkatmsrf_from_se.ncl \
+  'dstName="'${atmName}'"' \
+  'dstGridDir="'${atmGridName%/*}/'"' \
+  'dstGridFile="'${atmGridName##*/}'"' \
+  'atmsrfDir="'${ATMSRFOUTLOC}'"' \
+  'wgtFileDir="'${SCRATCHDIR}'"' \
+  'MACHINE="'${MACHINE}'"'
+date
+set -e

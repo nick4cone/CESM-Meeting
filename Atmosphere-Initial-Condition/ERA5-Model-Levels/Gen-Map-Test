@@ -1,0 +1,4 @@
+#!/bin/sh
+SOURCE_GRID=/glade/u/home/nforcone/CESM-Meeting/Atmosphere-Initial-Condition/grd.nc
+DEST_GRID=/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc
+ncremap -s $SOURCE_GRID -g $DEST_GRID -m map.nc

@@ -1,0 +1,19 @@
+#!/bin/sh
+echo Generate atmosphere initial condition...
+RDADIR=/glade/campaign/collections/rda/data/d633006/
+SE_SCRIP=/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc
+SE_NAME="MIDWEST.ne30x5"
+WGTFILE="./map_era5_0.25x0.25_TO_${SE_NAME}_patc.nc"
+ncl -n atm_to_cam.ncl 'datasource="ERA5RDA"' \
+numlevels=58 \
+YYYYMMDDHH=2019120100 \
+'dycore="se"' \
+'data_filename="/glade/campaign/collections/rda/data/ds633.0/e5.oper.invariant/197901/e5.oper.invariant.128_129_z.ll025sc.1979010100_1979010100.nc"' \
+'wgt_filename="/glade/u/home/$LOGNAME/betacast/remapping/map_gfs_0.25x0.25_TO_ne30_patc.nc"' \
+'RDADIR="/glade/campaign/collections/rda/data/ds633.0/"' \
+'model_topo_file="/glade/p/cesmdata/cseg/inputdata/atm/cam/topo/se/ne30np4_nc3000_Co060_Fi001_PF_nullRR_Nsw042_20171020.nc"' \
+'adjust_config=""' \
+compress_file=False \
+write_floats=True \
+add_cloud_vars=True \
+'se_inic="/glade/scratch/$LOGNAME/my_se_initial_condition_file.nc"'

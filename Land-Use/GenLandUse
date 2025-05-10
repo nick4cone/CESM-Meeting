@@ -1,0 +1,13 @@
+#!/bin/sh
+module load conda
+conda activate npl-2025a
+
+cd /glade/derecho/scratch/nforcone/ctsm5.3.002/tools/mksurfdata_esmf
+RES=MIDWEST.ne30x5
+START=2020
+END=2021
+MESH='/glade/u/home/nforcone/CESM-Meeting/Mesh/midwest-ncf-ESMF.nc'
+NX=381674
+NY=1
+
+./gen_mksurfdata_namelist --res $RES --start-year $START --end-year $END --model-mesh $MESH --model-mesh-nx $NX --model-mesh-ny $NY

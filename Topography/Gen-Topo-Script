@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -A UMIC0104
+#PBS -l walltime=12:00:00
+#PBS -q main
+#PBS -l select=2:ncpus=128
+
+cd /glade/u/home/nforcone/Topo/cube_to_target
+
+./cube_to_target --rrfac_max=32 --grid_descriptor_file='/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc' --intermediate_cs_name='/glade/campaign/cgd/amp/pel/topo/cubedata/gmted2010_modis_bedmachine-ncube3000-220518.nc' --output_grid='topo_midwest_NCF' --smoothing_scale=100.0 --name_email_of_creator='Nicholas C Forcone, nforcone@umich.edu'

@@ -1,0 +1,37 @@
+#!/bin/sh
+echo Generate atmosphere IC file...
+RDADIR=/glade/campaign/collections/rda/data/ds633.0/
+SE_SCRIP=/glade/u/home/nforcone/CESM-Meeting/Mesh/derecho-final_np4_SCRIP.nc
+SE_NAME="MIDWEST.NCF.ne30x5"
+
+## Generate a weight file from ERA5 -> target grid
+(set -x; ncl ${BETACAST}/remapping/gen_analysis_to_model_wgt_file.ncl \
+'ANLGRID="era5_0.25x0.25"' \
+'ANLGRIDPATH="'${BETACAST}'/grids/anl_scrip/"' \
+'DSTGRIDNAME="'${SE_NAME}'"' \
+'DSTGRIDFILE="'${SE_SCRIP}'"' \
+'WGTFILEDIR="./"' \
+)
+
+## This generates a WGTFILE named this:
+WGTFILE="./map_era5_0.25x0.25_TO_${SE_NAME}_patc.nc"
+
+echo Invoke Betacast atm_to_cam...
+## Invoke Betacast atm_to_cam
+ncl -n ${BETACAST}/atm_to_cam/atm_to_cam.ncl 'datasource="ERA5RDA"' \
+numlevels=58 \
+YYYYMMDDHH=2020081000 \
+'dycore="se"' \
+'data_filename = "'${RDADIR}'/e5.oper.invariant/197901/e5.oper.invariant.128_129_z.ll025sc.1979010100_1979010100.nc"' \
+'wgt_filename="'${WGTFILE}'"' \
+'RDADIR="'${RDADIR}'"' \
+'model_topo_file="/glade/u/home/nforcone/CESM-Meeting/Topography/topo_midwest_NCF_gmted2010_modis_bedmachine_nc3000_Laplace0100_noleak_20250508.nc"' \
+'adjust_config=""' \
+compress_file=True \
+write_floats=True \
+add_cloud_vars=True \
+'se_inic = "./midwest_se_initial_condition.nc"'
+
+echo Cleanup...
+## Cleanup
+rm -v $WGTFILE
