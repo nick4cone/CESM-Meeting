@@ -4,3 +4,8 @@ Hosts all model configuration scripts and analysis scripts for StormSPEED presen
 [SQuadGen](https://github.com/ClimateGlobalChange/squadgen)
 
 [V-R mesh creation instructions](https://acme-climate.atlassian.net/wiki/spaces/DOC/pages/1028128773/Generate+the+Grid+Mesh+Exodus+File+for+a+new+Regionally-Refined+Grid)
+
+## ne240 runs
+| nsteps | n nodes | runtime |
+| ------ | ------- | ------- |
+| 15     | 8       | tbd     |
