@@ -6,6 +6,6 @@ Hosts all model configuration scripts and analysis scripts for StormSPEED presen
 [V-R mesh creation instructions](https://acme-climate.atlassian.net/wiki/spaces/DOC/pages/1028128773/Generate+the+Grid+Mesh+Exodus+File+for+a+new+Regionally-Refined+Grid)
 
 ## ne240 runs
-| case name | nsteps | n nodes | runtime |
-| -- | -- | -- | -- |
-| test6_uniform_ne240 | 15 | 8 | tbd |
+| case name | nsteps | physics tstep | simulation time | se_tstep | n nodes | runtime |
+| -- | -- | -- | -- | -- | -- | -- |
+| test6_uniform_ne240 | 15 | 600 seconds | 9000 seconds | 30 seconds | 8 | tbd |
