@@ -9,3 +9,8 @@ Hosts all model configuration scripts and analysis scripts for StormSPEED presen
 | case name | nsteps | physics tstep | simulation time | se_tstep | n nodes | runtime |
 | -- | -- | -- | -- | -- | -- | -- |
 | test6_uniform_ne240 | 15 | 600 seconds | 9000 seconds | 30 seconds | 8 | tbd |
+
+## Notes (reorganize later)
+```ATM_NCPL=144```  
+```ROF_NCPL=48```   
+```./xmlchange --append --file env_build.xml --id CAM_CONFIG_OPTS --val="-nlev=58"```
