@@ -16,7 +16,7 @@ Hosts all model configuration scripts and analysis scripts for StormSPEED presen
 ```./xmlchange --append --file env_build.xml --id CAM_CONFIG_OPTS --val="-nlev=58"```
 
 ```
-  <model_grid alias="ne0MIDWEST.ne30x5_ne0MIDWEST.ne30x5" not_compset="_POP">
+  <model_grid alias="ne0MIDWESTne30x5_ne0MIDWESTne30x5" not_compset="_POP">
     <grid name="atm">ne0np4.MIDWEST.ne30x5</grid>
     <grid name="lnd">ne0np4.MIDWEST.ne30x5</grid>
     <grid name="ocnice">ne0np4.MIDWEST.ne30x5</grid>
