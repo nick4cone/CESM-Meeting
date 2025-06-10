@@ -23,3 +23,10 @@ Hosts all model configuration scripts and analysis scripts for StormSPEED presen
     <mask>tx0.1v2</mask>
   </model_grid>
 ```
+```
+  <domain name="ne0np4.MIDWEST.ne30x5">
+    <nx>381674</nx> <ny>1</ny>
+    <mesh>/glade/u/home/nforcone/CESM-Meeting/Mesh/midwest-ncf-ESMF.nc</mesh>
+    <desc>Spectral Elem 1-deg grid with 5 refinement levels over the Midwest</desc>
+  </domain>
+```
